@@ -9,7 +9,7 @@ import { User } from '../user';
 })
 export class LoginComponent implements OnInit {
 
-  private user = new User();
+  user = new User();
 
   constructor(private loginService: LoginService) { }
 

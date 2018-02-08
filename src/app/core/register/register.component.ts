@@ -9,10 +9,10 @@ import { User } from '../user';
 })
 export class RegisterComponent implements OnInit {
 
-  private user = new User();
-  private confirmPass: string;
-  private validUsername = false;
-  private validEmail = false;
+  user = new User();
+  confirmPass: string;
+  validUsername = false;
+  validEmail = false;
 
   constructor(private loginService: LoginService) { }
 
