@@ -1,0 +1,72 @@
+<div class="container-fluid">
+
+  <div class="row justify-content-center">
+    <h1>Money Care</h1>
+  </div>
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Criar conta</h5>
+          <hr>
+
+          <form #userForm="ngForm">
+            <div class="form-group">
+              <label>Nome:</label>
+              <input type="text" class="form-control" name="username" (blur)="validateUsername(username)" [(ngModel)]="user.username" #username="ngModel"
+                required>
+              <small class="text-danger" *ngIf="username.invalid&&username.dirty">Favor informar o nome do usuário</small>
+              <br *ngIf="username.invalid&&username.dirty">
+              <small class="text-danger" *ngIf="!validUsername&&username.dirty&&username.valid&&username.touched">Nome de usuário indisponível!</small>
+              <small class="text-success" *ngIf="validUsername&&username.dirty&&username.valid&&username.touched">Nome de usuário disponível</small>
+            </div>
+
+            <div class="form-group">
+              <label>Senha:</label>
+              <input type="password" class="form-control" (keyup)="validatePass()" name="password" [(ngModel)]="user.password" #password="ngModel"
+                required>
+              <small class="text-danger" *ngIf="password.invalid&&password.dirty">Favor informar a senha</small>
+            </div>
+
+            <div class="form-group">
+              <label>Confirmar Senha:</label>
+              <input type="password" class="form-control" (keyup)="validatePass()" name="confirmPass" [(ngModel)]="confirmPass" #confirm="ngModel"
+                required>
+              <small class="text-danger" *ngIf="confirm.invalid&&confirm.dirty">Favor confirmar a senha</small>
+              <small class="text-danger" *ngIf="!validatePass()&&confirm.dirty">Senhas não conferem</small>
+            </div>
+
+            <div class="form-group">
+              <label>Email:</label>
+              <input type="text" class="form-control" name="email" (blur)="validateEmail()" [(ngModel)]="user.email" #email="ngModel" required
+                email>
+
+              <small class="text-muted">O email será utilizado para recuperação da senha</small>
+              <br>
+              <div *ngIf="email.invalid&&email.dirty">
+                <small class="text-danger" *ngIf="email.errors.required">Favor informar seu email</small>
+                <br *ngIf="email.errors.required">
+                <small class="text-danger" *ngIf="email.errors.email">Formato inválido</small>
+              </div>
+              <small class="text-danger" *ngIf="!validEmail&&email.dirty&&email.valid&&email.touched">Email indisponível!</small>
+              <small class="text-success" *ngIf="validEmail&&email.dirty&&email.valid&&email.touched">Email disponível</small>
+
+            </div>
+
+            <div class="form-group">
+              <button class="btn btn-primary btn-block" (click)="submitForm()" [disabled]="">Login</button>
+            </div>
+            <small>Já tem sua conta?</small>
+            <br>
+            <small>Click
+              <a href="">aqui</a> para realizar seu login.</small>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
