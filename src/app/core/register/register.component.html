@@ -12,7 +12,7 @@
           <h5 class="card-title">Criar conta</h5>
           <hr>
 
-          <form #userForm="ngForm">
+          <form #registerForm="ngForm">
             <div class="form-group">
               <label>Nome:</label>
               <input type="text" class="form-control" name="username" (blur)="validateUsername(username)" [(ngModel)]="user.username" #username="ngModel"
@@ -56,12 +56,13 @@
             </div>
 
             <div class="form-group">
-              <button class="btn btn-primary btn-block" (click)="submitForm()" [disabled]="">Login</button>
+              <button class="btn btn-primary btn-block" (click)="submitForm()" 
+              [disabled]="registerForm.invalid||!validUsername||!validEmail||!validatePass()">Cadastrar</button>
             </div>
             <small>Já tem sua conta?</small>
             <br>
             <small>Click
-              <a href="">aqui</a> para realizar seu login.</small>
+              <a [routerLink]="['']">aqui</a> para realizar seu login.</small>
           </form>
         </div>
       </div>

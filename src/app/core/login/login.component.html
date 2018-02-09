@@ -26,7 +26,7 @@
           </div>
 
           <div class="form-group">
-            <button class="btn btn-primary btn-block" (click)="submitForm()" [disabled]="">Login</button>
+            <button class="btn btn-primary btn-block" (click)="submitForm()" [disabled]="userForm.invalid">Login</button>
           </div>
           <small>Ainda não tem uma conta?</small><br>
           <small>Click <a [routerLink]="['/register']">aqui</a> para realizar seu cadastro</small>
