@@ -1,3 +1,31 @@
-<p>
-  dashboard works!
-</p>
+<div class="container-fluid mt-2">
+  <div class="row justify-content-center">
+
+    <div class="col-md-4 col-sm-12">
+      <div class="jumbotron">
+        <h4 class="diplay-4">
+          Visão geral: {{currentMonth()}}
+        </h4>
+        <hr>
+        <div class="text-success">
+          Receitas:
+          <div class="float-right">R$ {{monthSumary.revenues}}</div>
+        </div>
+        <div class="text-danger">
+          Despesas:
+          <div class="float-right">R$ {{monthSumary.expenses}}</div>
+        </div>
+        <hr>
+        <div [ngClass]="{ 'text-success':monthSumary.total>0, 'text-danger':monthSumary.total<=0 }">
+          Total:
+          <div class="float-right">R$ {{monthSumary.total}}</div>
+        </div>
+
+        <canvas baseChart width="100%" height="100%" [data]="chartData" [labels]="chartLabels" [chartType]="chartType" [colors]="chartColor"></canvas>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
