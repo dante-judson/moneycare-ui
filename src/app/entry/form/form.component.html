@@ -1,0 +1,33 @@
+<div class="container-fluid mt-2">
+  <div class="jumbotron">
+      <h4 class="diplay-4">
+          Adicionar Lançamento
+      </h4>
+
+      <form #entryForm="ngForm">
+
+        <div class="form-group">
+          <label>Tipo:</label>
+          <select name="type" class="form-control" [(ngModel)]="entry.type">
+            <option value="Receita">Receita</option>
+            <option value="Despesa">Despesa</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Valor:</label>
+          <input type="number" class="form-control" [(ngModel)]="entry.value" name="value">
+        </div>
+
+        <div class="form-group">
+          <label>Descrição:</label>
+          <input type="text" class="form-control" [(ngModel)]="entry.description" name="description">
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary" (click)="">Adicionar</button>
+        </div>
+
+      </form>
+  </div>
+</div>

@@ -6,6 +6,7 @@ import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { CoreModule } from "./core/core.module";
 import { TokenInterceptor } from "./interceptors/token-interceptor";
+import { EntryModule } from "./entry/entry.module";
 
 const routes: Routes = [];
 @NgModule({
@@ -16,7 +17,8 @@ const routes: Routes = [];
     BrowserModule,
     RouterModule.forRoot([]),
 
-    CoreModule
+    CoreModule,
+    EntryModule
   ],
   providers: [
     {

@@ -6,22 +6,25 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Dashboard</a>
+        <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Novo Lancamento</a>
+        <a class="nav-link" [routerLink]="['/entry/form']">Novo Lançamento</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Extrato</a>
+        <a class="nav-link" [routerLink]="['/statement']">Extrato</a>
+      </li>  
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/entry/form']">Buscar Lançamentos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Metas</a>
+        <a class="nav-link" [routerLink]="['/goals']">Metas</a>
       </li>
       <li class="nav-item d-lg-none">
         <a class="nav-link" (click)="logoff()" [routerLink]="['']">Logoff</a>
       </li>
     </ul>
     <a [routerLink]="['']" (click)="logoff()" class="nav-link text-white d-none d-lg-block d-sm-none">Logoff</a>
-  
+
   </div>
 </nav>
