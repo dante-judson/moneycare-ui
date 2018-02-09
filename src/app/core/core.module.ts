@@ -7,6 +7,8 @@ import { CoreRoutingModule } from './core-routing.module';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from "./login.service";
 import { RegisterComponent } from './register/register.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   imports: [
@@ -16,7 +18,8 @@ import { RegisterComponent } from './register/register.component';
 
     CoreRoutingModule
   ],
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, DashboardComponent, NavbarComponent],
+  exports: [NavbarComponent],
   providers: [LoginService]
 })
 export class CoreModule { }
