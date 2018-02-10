@@ -1,33 +1,70 @@
 <div class="container-fluid mt-2">
-  <div class="jumbotron">
-      <h4 class="diplay-4">
+
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="jumbotron">
+        <h4 class="diplay-4">
           Adicionar Lançamento
-      </h4>
+        </h4>
 
-      <form #entryForm="ngForm">
+        <div *ngIf="message" class="alert alert-dismissible fade show" [ngClass]="{ 'alert-success':!error, 'alert-danger':error }" role="alert">
+          {{message}}
+          <button type="button" class="close" data-dismiss="alert" (click)="closeAlert()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
 
-        <div class="form-group">
-          <label>Tipo:</label>
-          <select name="type" class="form-control" [(ngModel)]="entry.type">
+        <form #entryForm="ngForm">
+
+          <div class="form-group">
+            <label>Tipo:</label>
+            <select name="type" class="form-control" [(ngModel)]="entry.type">
             <option value="Receita">Receita</option>
             <option value="Despesa">Despesa</option>
           </select>
-        </div>
+          </div>
 
-        <div class="form-group">
-          <label>Valor:</label>
-          <input type="number" class="form-control" [(ngModel)]="entry.value" name="value">
-        </div>
+          <div class="form-group">
+            <label>Valor:</label>
+            <input type="number" class="form-control" [(ngModel)]="entry.value" name="value" #value="ngModel" required>
+            <small class="text-danger" *ngIf="value.dirty&&value.invalid">Favor preencher um valor para o lançamento!</small>
+          </div>
 
-        <div class="form-group">
-          <label>Descrição:</label>
-          <input type="text" class="form-control" [(ngModel)]="entry.description" name="description">
-        </div>
+          <div class="form-group">
+            <label>Descrição:</label>
+            <input type="text" class="form-control" [(ngModel)]="entry.description" name="description">
+            <small class="text-muted">Esse campo será utilizado para identificar o lançamento</small>
+          </div>
 
-        <div class="form-group">
-          <button class="btn btn-primary" (click)="">Adicionar</button>
-        </div>
+          <div class="form-group">
+            <button class="btn btn-primary" (click)="submitForm(entryForm)" [disabled]="entryForm.invalid">Adicionar</button>
+          </div>
 
-      </form>
+          <button type="button" hidden data-toggle="modal" id="modalTrigger" data-target="#exampleModal"></button>
+        </form>
+      </div>
+    </div>
   </div>
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 </div>
