@@ -24,18 +24,23 @@ export class FormComponent implements OnInit {
 
   submitForm(form) {
     if (this.entry.description) {
-      this.entryService.save(this.entry).subscribe(res => {
-        form.reset({ type: 'Receita' });
-        this.message = 'Lançamento adicionado com sucesso!';
-        this.error = false;
-      }, err => {
-        this.message = err.message;
-        this.error = true;
-      });
+     this.saveEntry(form);
     } else {
       document.getElementById('modalTrigger').click();
     }
 
+  }
+
+  saveEntry(form){
+    this.entryService.save(this.entry).subscribe(res => {
+      form.reset({ type: 'Receita' });
+      this.message = 'Lançamento adicionado com sucesso!';
+      this.error = false;
+    }, err => {
+      this.message = err.message;
+      this.error = true;
+    });
+    document.getElementById('closeModal').click();
   }
 
   closeAlert() {

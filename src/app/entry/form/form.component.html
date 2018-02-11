@@ -3,11 +3,12 @@
   <div class="row justify-content-center">
     <div class="col-lg-6">
       <div class="jumbotron">
-        <h4 class="diplay-4">
+        <h4>
           Adicionar Lançamento
         </h4>
-
-        <div *ngIf="message" class="alert alert-dismissible fade show" [ngClass]="{ 'alert-success':!error, 'alert-danger':error }" role="alert">
+        <hr>
+        <div *ngIf="message" class="alert alert-dismissible fade show" [ngClass]="{ 'alert-success':!error, 'alert-danger':error }"
+          role="alert">
           {{message}}
           <button type="button" class="close" data-dismiss="alert" (click)="closeAlert()">
               <span aria-hidden="true">&times;</span>
@@ -48,23 +49,24 @@
 
 
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmar</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
+        </div>
+        <div class="modal-body">
+          Vimos que você está tentando cadastrar um novo lançamento sem descrição. Esse campo é importante para ajudar-lo
+          a lembrar futuramente do que se tratava. Deseja salvar o lançamento mesmo assim?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeModal">Fechar</button>
+          <button type="button" class="btn btn-primary" (click)="saveEntry(entryForm)">OK</button>
         </div>
       </div>
     </div>
+  </div>
 
 </div>

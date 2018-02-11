@@ -15,6 +15,10 @@ export class EntryService {
     return this.http.get<Entry[]>(this.serviceURL);
   }
 
+  monthStatement(){
+    return this.http.get<Entry[]>(`${enviroment.serverURL}/monthstatement`);
+  }
+
   save(entry: Entry) {
     return this.http.post<Entry>(this.serviceURL, entry);
   }
@@ -24,7 +28,7 @@ export class EntryService {
   }
 
   update(entry: Entry){
-    return this.http.put<Entry>(`${this.serviceURL}/${entry.id}`,entry);
+    return this.http.put<Entry>(`${this.serviceURL}/${entry._id}`,entry);
   }
 
   delete(id: string){

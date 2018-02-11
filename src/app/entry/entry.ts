@@ -1,6 +1,6 @@
 export class Entry {
 
-    id:string;
+    _id:string;
     type:string;
     value:number;
     description:string;

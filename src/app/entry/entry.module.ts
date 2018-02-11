@@ -6,6 +6,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { EntryRoutingModule } from './entry-routing.module';
 import { FormComponent } from './form/form.component';
 import { EntryService } from "./entry.service";
+import { StatementComponent } from './statement/statement.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { EntryService } from "./entry.service";
 
     EntryRoutingModule
   ],
-  declarations: [FormComponent],
+  declarations: [FormComponent, StatementComponent],
   providers:[EntryService]
 })
 export class EntryModule { }

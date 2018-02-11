@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="row justify-content-center mt-2">
+
+    <div class="col-md-6 col-sm-12">
+      <div class="jumbotron">
+        <h4>
+          Extrato Mensal
+        </h4>
+        <hr>
+
+        <table class="table">
+
+          <thead>
+            <tr>
+              <th>
+                Lançamento
+              </th>
+              <th class="float-rigth">
+                Valor
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr *ngFor="let entry of entries">
+                <td [ngClass]="{'text-success':entry.type =='Receita', 'text-danger':entry.type =='Despesa'}">
+                  {{entry.description}}
+                </td>
+                <td [ngClass]="{'text-success':entry.type =='Receita', 'text-danger':entry.type =='Despesa'}">
+                  {{entry.type=='Receita'?'+':'-'}} {{entry.value}}
+                </td>
+            </tr>
+
+            <tr>
+              <td [ngClass]="{'text-success': total > 0, 'text-danger': total <= 0}">
+                Total:
+              </td>
+              <td [ngClass]="{'text-success': total > 0, 'text-danger': total <= 0}">
+                {{total}}
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+</div>
