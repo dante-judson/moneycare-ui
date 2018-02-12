@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from "./core/core.module";
 import { TokenInterceptor } from "./interceptors/token-interceptor";
 import { EntryModule } from "./entry/entry.module";
+import { AuthGuard } from "./guards/authGuard";
+import { NotAuthGuard } from "./guards/notAuthGuard";
 
 const routes: Routes = [];
 @NgModule({
@@ -25,7 +27,9 @@ const routes: Routes = [];
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    AuthGuard,
+    NotAuthGuard
   ],
   bootstrap: [AppComponent]
 })

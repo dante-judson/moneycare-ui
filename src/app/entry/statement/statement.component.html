@@ -15,7 +15,10 @@
               <th>
                 Lançamento
               </th>
-              <th class="float-rigth">
+              <th>
+                Data
+              </th>
+              <th>
                 Valor
               </th>
             </tr>
@@ -28,6 +31,9 @@
                   {{entry.description}}
                 </td>
                 <td [ngClass]="{'text-success':entry.type =='Receita', 'text-danger':entry.type =='Despesa'}">
+                  {{entry.createdDate | date : 'dd-MM-yyyy'}}
+                </td>
+                <td [ngClass]="{'text-success':entry.type =='Receita', 'text-danger':entry.type =='Despesa'}">
                   {{entry.type=='Receita'?'+':'-'}} {{entry.value}}
                 </td>
             </tr>
@@ -36,6 +42,7 @@
               <td [ngClass]="{'text-success': total > 0, 'text-danger': total <= 0}">
                 Total:
               </td>
+              <td></td>
               <td [ngClass]="{'text-success': total > 0, 'text-danger': total <= 0}">
                 {{total}}
               </td>

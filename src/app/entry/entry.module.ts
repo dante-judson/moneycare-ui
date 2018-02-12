@@ -7,6 +7,9 @@ import { EntryRoutingModule } from './entry-routing.module';
 import { FormComponent } from './form/form.component';
 import { EntryService } from "./entry.service";
 import { StatementComponent } from './statement/statement.component';
+import { ReportFormComponent } from './report-form/report-form.component';
+import { ReportService } from "./report.service";
+import { ReportDataComponent } from './report-data/report-data.component';
 
 @NgModule({
   imports: [
@@ -16,7 +19,7 @@ import { StatementComponent } from './statement/statement.component';
 
     EntryRoutingModule
   ],
-  declarations: [FormComponent, StatementComponent],
-  providers:[EntryService]
+  declarations: [FormComponent, StatementComponent, ReportFormComponent, ReportDataComponent],
+  providers:[EntryService, ReportService]
 })
 export class EntryModule { }

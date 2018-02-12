@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-12">
+
+      <div class="jumbotron">
+
+        <table class="table">
+
+          <thead>
+            <tr>
+              <th>
+                Lançamento
+              </th>
+              <th>
+                Data
+              </th>
+              <th>
+                Valor
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr *ngFor="let entry of reportData">
+              <td [ngClass]="{'text-success':entry.type =='Receita', 'text-danger':entry.type =='Despesa'}">
+                {{entry.description}}
+              </td>
+              <td [ngClass]="{'text-success':entry.type =='Receita', 'text-danger':entry.type =='Despesa'}">
+                {{entry.createdDate | date:'dd-MM-yyyy'}}
+              </td>
+              <td [ngClass]="{'text-success':entry.type =='Receita', 'text-danger':entry.type =='Despesa'}">
+                {{entry.type=='Receita'?'+':'-'}} {{entry.value}}
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>

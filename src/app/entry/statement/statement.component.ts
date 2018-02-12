@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { EntryService } from "../entry.service";
+import { ReportService } from "../report.service";
 import { Entry } from "../entry";
 
 @Component({
@@ -14,7 +14,7 @@ export class StatementComponent implements OnInit {
   total = 0;
 
   constructor(
-    private service: EntryService
+    private service: ReportService
   ) { }
 
   ngOnInit() {
