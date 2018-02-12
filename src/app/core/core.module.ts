@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardService } from "./dashboard.service";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { DashboardService } from "./dashboard.service";
     HttpClientModule,
     ChartsModule,
 
-    CoreRoutingModule
+    CoreRoutingModule,
+    SharedModule
   ],
   declarations: [LoginComponent, RegisterComponent, DashboardComponent, NavbarComponent],
   exports: [NavbarComponent],

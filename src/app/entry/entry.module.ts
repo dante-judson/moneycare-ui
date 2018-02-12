@@ -10,6 +10,8 @@ import { StatementComponent } from './statement/statement.component';
 import { ReportFormComponent } from './report-form/report-form.component';
 import { ReportService } from "./report.service";
 import { ReportDataComponent } from './report-data/report-data.component';
+import { GoalsComponent } from './goals/goals.component';
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   imports: [
@@ -17,9 +19,10 @@ import { ReportDataComponent } from './report-data/report-data.component';
     FormsModule,
     HttpClientModule,
 
-    EntryRoutingModule
+    EntryRoutingModule,
+    SharedModule
   ],
-  declarations: [FormComponent, StatementComponent, ReportFormComponent, ReportDataComponent],
+  declarations: [FormComponent, StatementComponent, ReportFormComponent, ReportDataComponent, GoalsComponent],
   providers:[EntryService, ReportService]
 })
 export class EntryModule { }

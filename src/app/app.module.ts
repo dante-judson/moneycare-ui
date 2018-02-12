@@ -9,18 +9,20 @@ import { TokenInterceptor } from "./interceptors/token-interceptor";
 import { EntryModule } from "./entry/entry.module";
 import { AuthGuard } from "./guards/authGuard";
 import { NotAuthGuard } from "./guards/notAuthGuard";
+import { SharedModule } from "./shared/shared.module";
 
 const routes: Routes = [];
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([]),
 
     CoreModule,
-    EntryModule
+    EntryModule,
+    SharedModule
   ],
   providers: [
     {
