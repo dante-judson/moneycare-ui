@@ -15,12 +15,15 @@ export class LoadingComponent implements OnInit {
 
   ngOnDestroy() {
 
-    let element = document.getElementById('loadingPage');
+    // let element = document.getElementById('loadingPage');
+    let element = document.getElementsByClassName('modal-open')[0];
     let elementClass = document.getElementsByClassName('modal-backdrop')[0];
     if (element) {
-      element.remove();
+      element.classList.remove('modal-open');
     }
     if (elementClass) {
+      document.getElementsByClassName('modal-open');
+      
       elementClass.remove();
     }
   }
