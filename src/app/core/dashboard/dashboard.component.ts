@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
     expenses: 0,
     total: 0
   };
+  loading = false;
 
   chartType = 'doughnut';
   chartData = [];
@@ -34,7 +35,9 @@ export class DashboardComponent implements OnInit {
   }
 
   getMonthSumary() {
+    this.loading = true;
     this.dashboardService.monthSumary().subscribe(res => {
+      this.loading = false;
       this.monthSumary = res;
       this.monthSumary.total = this.monthSumary.revenues - this.monthSumary.expenses
       this.createChart();

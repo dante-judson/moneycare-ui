@@ -12,6 +12,7 @@ export class StatementComponent implements OnInit {
 
   entries: Entry[] = [];
   total = 0;
+  loading = false;
 
   constructor(
     private service: ReportService
@@ -23,8 +24,10 @@ export class StatementComponent implements OnInit {
 
 
   getMonthStatement() {
+    this.loading = true;
     this.service.monthStatement().subscribe(res => {
       this.entries = res;
+      this.loading = false;
 
       this.entries.forEach(entry => {
         if(entry.type == 'Receita'){

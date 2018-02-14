@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, OnDestroy, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-loading',
@@ -7,22 +7,21 @@ import { Component, OnInit, Input, OnChanges, OnDestroy } from '@angular/core';
 })
 export class LoadingComponent implements OnInit {
 
-  @Input() loading;
-
   constructor() { }
 
   ngOnInit() {
-  }
-
-  ngOnChanges() {
-    if (this.loading) {
-      document.getElementById('modalTrigger').click();
-    }
+    document.getElementById('modalTrigger').click();
   }
 
   ngOnDestroy() {
-    let element = document.getElementsByClassName('modal-backdrop')[0];
-    element.classList.remove('modal-backdrop');
-  }
 
+    let element = document.getElementById('loadingPage');
+    let elementClass = document.getElementsByClassName('modal-backdrop')[0];
+    if (element) {
+      element.remove();
+    }
+    if (elementClass) {
+      elementClass.remove();
+    }
+  }
 }

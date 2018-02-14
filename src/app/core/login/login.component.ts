@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   user = new User();
   loading = false;
+  errorMessage: string;
 
   constructor(
     private loginService: LoginService,
@@ -24,11 +25,12 @@ export class LoginComponent implements OnInit {
   submitForm() {
     this.loading = true;
     this.loginService.login(this.user).subscribe(res => {
+      this.loginService.storeToken(res.token);
+      this.router.navigate(['dashboard']);
       this.loading = false;
-      setTimeout(() => {
-        this.loginService.storeToken(res.token);
-        this.router.navigate(['dashboard']);
-      },500)
+    }, err => {
+      this.loading = false;
+      this.errorMessage = err.error.message;
     });
   }
 

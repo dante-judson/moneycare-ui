@@ -11,6 +11,7 @@ import { ReportService } from "../report.service";
 })
 export class ReportFormComponent implements OnInit {
 
+  loading = false;
   reportData: Entry[];
   filter: ReportFilter = new ReportFilter();
 
@@ -37,6 +38,7 @@ export class ReportFormComponent implements OnInit {
   }
 
   submitForm() {
+    this.loading = true;
     this.reportData = [];
 
     if (this.filter.initialDate == '') {
@@ -56,6 +58,7 @@ export class ReportFormComponent implements OnInit {
     }
 
     this.service.report(this.filter).subscribe(res => {
+      this.loading = false
       this.reportData = res;
     });
   }
