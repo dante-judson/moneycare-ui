@@ -10,6 +10,8 @@ import { Entry } from "../entry";
 })
 export class StatementComponent implements OnInit {
 
+  months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho',
+  'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Desembro'];
   entries: Entry[] = [];
   total = 0;
   loading = false;
@@ -39,4 +41,8 @@ export class StatementComponent implements OnInit {
     });
   }
 
+  currentMonth(){
+    let today = new Date();
+    return this.months[today.getMonth()];
+  }
 }

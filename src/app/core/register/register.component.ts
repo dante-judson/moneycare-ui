@@ -13,6 +13,8 @@ export class RegisterComponent implements OnInit {
   confirmPass: string;
   validUsername = false;
   validEmail = false;
+  error: boolean;
+  message:string;
 
   constructor(private loginService: LoginService) { }
 
@@ -21,7 +23,11 @@ export class RegisterComponent implements OnInit {
 
   submitForm(){
     this.loginService.register(this.user).subscribe(res => {
-      console.log(res);
+      this.error = false;
+      this.message = 'Usuário criado com sucesso!';
+    },err => {
+      this.error = true;
+      this.message = err.error.message;
     })
   }
 
@@ -32,16 +38,22 @@ export class RegisterComponent implements OnInit {
   validateEmail(){
     this.loginService.checkEmail(this.user.email).subscribe(res => {
       this.validEmail = res['valid'];
-      console.log(this.validEmail);
-      
+    },err => {
+      this.error = true;
+      this.message = 'Erro ao conectar com servidor';
     });
   }
 
   validateUsername(username){
-    console.log(username);
-    
     this.loginService.checkUsername(this.user.username).subscribe(res => {
       this.validUsername = res['valid'];
+    },err => {
+      this.error = true;
+      this.message = 'Erro ao conectar com servidor';
     })
+  }
+
+  closeAlert(){
+    this.message = null;
   }
 }
