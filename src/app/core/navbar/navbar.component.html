@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="#">Money Care</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
     <span class="navbar-toggler-icon"></span>
@@ -6,25 +6,28 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
+        <a class="nav-link" [routerLink]="['/dashboard']"><i class="fa fa-pie-chart"></i> Dashboard</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/entry/form']">Novo Lançamento</a>
+        <a class="nav-link" [routerLink]="['/entry/form']"><i class="fa fa-plus-circle"></i> Novo Lançamento</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/statement']">Extrato</a>
+        <a class="nav-link" [routerLink]="['/statement']"><i class="fa fa-list-ol"></i> Extrato</a>
       </li>  
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/report/form']">Buscar Lançamentos</a>
+        <a class="nav-link" [routerLink]="['/report/form']"><i class="fa fa-search"></i> Buscar Lançamentos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/goals']">Metas</a>
+        <a class="nav-link" [routerLink]="['/goals']"><i class="fa fa-line-chart"></i> Metas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/about']"><i class="fa fa-info"></i> Sobre</a>
       </li>
       <li class="nav-item d-lg-none">
-        <a class="nav-link" (click)="logoff()" [routerLink]="['']">Logoff</a>
+        <a class="nav-link" (click)="logoff()" [routerLink]="['']"><i class="fa fa-sign-out"></i> Logoff</a>
       </li>
     </ul>
-    <a [routerLink]="['']" (click)="logoff()" class="nav-link text-white d-none d-lg-block d-sm-none">Logoff</a>
+    <a [routerLink]="['']" (click)="logoff()" class="nav-link text-white d-none d-lg-block d-sm-none"><i class="fa fa-sign-out"></i> Logoff</a>
 
   </div>
 </nav>

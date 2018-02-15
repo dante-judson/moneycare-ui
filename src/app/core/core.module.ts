@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardService } from "./dashboard.service";
 import { SharedModule } from "../shared/shared.module";
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,7 @@ import { SharedModule } from "../shared/shared.module";
     CoreRoutingModule,
     SharedModule
   ],
-  declarations: [LoginComponent, RegisterComponent, DashboardComponent, NavbarComponent],
+  declarations: [LoginComponent, RegisterComponent, DashboardComponent, NavbarComponent, AboutComponent],
   exports: [NavbarComponent],
   providers: [LoginService, DashboardService]
 })
