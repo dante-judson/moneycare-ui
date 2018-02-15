@@ -19,6 +19,6 @@ export class ReportService {
   }
 
   report(filter: ReportFilter){
-    return this.http.get<Entry[]>(`${this.serviceURL}/report/${filter.initialDate}/${filter.finalDate}/${filter.type}/${filter.description}`);
+    return this.http.get<Entry[]>(`${this.serviceURL}/report/${filter.initialDate} 00:00/${filter.finalDate} 23:59/${filter.type}/${filter.description}`);
   }
 }
