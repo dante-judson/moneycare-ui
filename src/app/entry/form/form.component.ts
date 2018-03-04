@@ -13,6 +13,7 @@ export class FormComponent implements OnInit {
   entry = new Entry();
   message: string;
   error: boolean;
+  loading: boolean;
 
   constructor(
     private entryService: EntryService
@@ -32,7 +33,9 @@ export class FormComponent implements OnInit {
   }
 
   saveEntry(form){
+    this.loading = true;
     this.entryService.save(this.entry).subscribe(res => {
+      this.loading = false;
       form.reset({ type: 'Receita' });
       this.message = 'Lançamento adicionado com sucesso!';
       this.error = false;
