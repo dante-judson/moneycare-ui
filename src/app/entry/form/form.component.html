@@ -25,6 +25,20 @@
           </select>
           </div>
 
+          <div class="form-group" *ngIf="entry.type == 'Despesa'">
+            <label>Categoria:</label>
+            <select class="form-control" [(ngModel)]="entry.category" name="category">
+              <option>Não Informado</option>
+              <option>Alimentação</option>
+              <option>Diversão</option>
+              <option>Saúde</option>
+              <option>Casa</option>
+              <option>Transporte</option>
+              <option>Educação</option>
+              <option>Outros</option>              
+            </select>
+          </div>
+
           <div class="form-group">
             <label>Valor:</label>
             <input type="number" class="form-control" [(ngModel)]="entry.value" name="value" #value="ngModel" required>
@@ -64,7 +78,7 @@
           a lembrar futuramente do que se tratava. Deseja salvar o lançamento mesmo assim?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeModal">Fechar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeModal" (click)="closeModal()">Fechar</button>
           <button type="button" class="btn btn-primary" (click)="saveEntry(entryForm)">OK</button>
         </div>
       </div>

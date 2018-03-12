@@ -21,6 +21,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
     this.entry.type = 'Receita';
+    this.entry.category = 'Não Informado'
   }
 
   submitForm(form) {
@@ -42,11 +43,16 @@ export class FormComponent implements OnInit {
     }, err => {
       this.message = err.message;
       this.error = true;
+      this.loading = false;      
     });
     document.getElementById('closeModal').click();
   }
 
   closeAlert() {
     this.message = '';
+  }
+
+  closeModal(){
+    this.loading = false;
   }
 }

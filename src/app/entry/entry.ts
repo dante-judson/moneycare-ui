@@ -5,4 +5,5 @@ export class Entry {
     value:number;
     description:string;
     createdDate: Date;
+    category:string;
 }

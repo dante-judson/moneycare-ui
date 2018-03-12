@@ -9,23 +9,62 @@
         <hr>
         <div class="text-success">
           Receitas:
-          <div class="float-right">R$ {{monthSumary.revenues}}</div>
+          <div class="float-right">R$ {{monthSumary.sumRevenues}}</div>
         </div>
         <div class="text-danger">
           Despesas:
-          <div class="float-right">R$ {{monthSumary.expenses}}</div>
+          <div class="float-right">R$ {{monthSumary.sumExpenses}}</div>
         </div>
         <hr>
         <div [ngClass]="{ 'text-success':monthSumary.total>0, 'text-danger':monthSumary.total<=0 }">
-          Total:
+          Saldo:
           <div class="float-right">R$ {{monthSumary.total}}</div>
         </div>
 
-        <canvas *ngIf="monthSumary.revenues != 0 || monthSumary.expenses != 0" baseChart width="100%" height="100%" [data]="chartData" [labels]="chartLabels" [chartType]="chartType" [colors]="chartColor"></canvas>
+        <canvas *ngIf="monthSumary.sumRevenues != 0 || monthSumary.sumExpenses != 0" baseChart width="100%" height="100%" 
+          [data]="pieChart.data"
+          [labels]="pieChart.labels" 
+          [chartType]="'doughnut'" 
+          [colors]="pieChart.colors"></canvas>
+      </div>
+
+      <div class="jumbotron" *ngIf="monthSumary.sumExpenses != 0">
+        <h4 class="diplay-4">
+          Progressão de despesas: {{currentMonth()}}
+        </h4>
+
+        <hr>
+
+        <!-- <canvas *ngIf="monthSumary.revenues != 0 || monthSumary.expenses != 0" baseChart width="100%" height="100%" [datasets]="progressChartData.datasets"
+        [labels]="progressChartData.labels" [chartType]="'line'"></canvas> -->
+        <canvas baseChart width="100%" height="100%"
+        [datasets]="progressChart.data"
+        [labels]="progressChart.labels"
+        [chartType]="'line'"
+        [colors]="progressChart.colors"
+        [options]="progressChart.options"></canvas>
+
+      </div>
+      
+      <div class="jumbotron"  *ngIf="monthSumary.sumExpenses != 0">
+        <h4 class="diplay-4">
+          Despesas por Categoria
+        </h4>
+        <hr>
+        
+        <canvas baseChart width="100%" height="100%" 
+            [data]="categoryChart.data"
+            [labels]="categoryChart.labels" 
+            [chartType]="'doughnut'" 
+            [colors]="categoryChart.colors">
+        </canvas>
+
       </div>
     </div>
 
   </div>
+
+ 
 
 </div>
 
