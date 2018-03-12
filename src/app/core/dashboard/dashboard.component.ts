@@ -138,7 +138,7 @@ export class DashboardComponent implements OnInit {
 
     this.categoryChart.data = data;
     this.categoryChart.labels = labels;
-    this.categoryChart.colors[0].backgroundColor = ['#006E90','#F18F01','#ADCAD6','#99C24D','#41BBD9',''];
+    this.categoryChart.colors[0].backgroundColor = ['#006E90','#F18F01','#ADCAD6','#99C24D','#41BBD9','#253031','#315659','#BCAB79'];
 
   }
 
